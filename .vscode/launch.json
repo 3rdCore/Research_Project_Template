@@ -13,7 +13,7 @@
             "args": [
                 "hydra/launcher=mila_tom",
                 "save_dir=/home/mila/t/tom.marty/scratch/unregistered_logs",
-            ],            
+            ],
             "env": {
                 "HYDRA_FULL_ERROR": "1"
             },
