@@ -12,3 +12,4 @@ hydra-core
 beartype
 submitit
 hydra-submitit-launcher
+pytest
