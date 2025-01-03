@@ -1,48 +1,19 @@
 import copy
-from abc import ABC,abstractmethod
-from typing import Any, Dict, Iterable, List, Literal, Optional
 import warnings
+from abc import ABC, abstractmethod
+from typing import Any, Dict, Iterable, List, Literal, Optional
 
 import numpy as np
 import torch
 import torch.nn as nn
 from beartype import beartype
+from lightning import LightningDataModule
 from pytorch_lightning.utilities.seed import isolate_rng
 from torch import FloatTensor, Tensor
-from torch.utils.data import DataLoader
+from torch.utils.data import DataLoader, Dataset
 from torchdata.datapipes.map import MapDataPipe
 
-from lightning import LightningDataModule
-
-warnings.filterwarnings("ignore", message=".*does not have many workers.*") 
-
-class Dataset(ABC, MapDataPipe):
-    @abstractmethod
-    def __len__(self) -> int:
-        pass
-
-    @abstractmethod
-    def __getitem__(self, index: int) -> Any:
-        """Get sample from the dataset.
-
-        Args:
-            index (int): sample index.
-
-        Returns:
-            Any: sample.
-        """
-        pass
-
-    @beartype
-    def __len__(self) -> int:
-        pass
-
-    @abstractmethod
-    def gen_data(
-        self,
-        n_samples: int,
-    ) -> Any:
-        pass
+warnings.filterwarnings("ignore", message=".*does not have many workers.*")
 
 
 class Custom_Dataset(Dataset):
@@ -51,32 +22,32 @@ class Custom_Dataset(Dataset):
         self,
     ):
         super().__init__()
+        # add your setup
+
+        self.data, self.task_params = self.gen_data()
+
+    @beartype
+    def __len__(self) -> int:
+        pass
+
+    @beartype
+    def __getitem__(
+        self, index
+    ) -> Any:  # be careful of the return type, please read lightning doc for best-practices
+        pass
 
     @beartype
     @torch.inference_mode()
     def gen_data(
         self,
         n_samples: int,
-    ) -> Any:
+    ) -> Any:  # be careful of the return type
         x = None
         y = None
         data_dict = {"x": x, "y": y}
         params_dict = None
-        
+
         return data_dict, params_dict
-
-
-    @abstractmethod
-    def sample_task_params(self, n_tasks: int | None = None) -> dict[str, Tensor]:
-        """Sample parameters for each of the n_tasks
-
-        Args:
-            n_tasks (int): Number of tasks to generate.
-
-        Returns:
-            dict[str, Tensor]:
-        """
-        pass
 
     @abstractmethod
     def function(self, x: Tensor, params: dict[str, Tensor]) -> FloatTensor:
@@ -128,4 +99,3 @@ class CustomDataModule(LightningDataModule):
             shuffle=False,
             collate_fn=None,
         )
-

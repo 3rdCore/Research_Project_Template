@@ -13,3 +13,16 @@ logger:
   save_dir: ${save_dir}
   offline: False
   tags: null
+
+trainer:
+  max_epochs: 10
+  enable_progress_bar: True
+  log_every_n_steps: 1
+
+#overwrite with your own class name and attributes
+
+datamodule: null
+
+task: null
+
+callbacks: null

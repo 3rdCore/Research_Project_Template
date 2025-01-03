@@ -1,11 +1,12 @@
 import random
 from abc import ABC, abstractmethod
-from typing import Iterable, Literal, Any
+from typing import Any, Iterable, Literal
 
 import torch
 from beartype import beartype
-from lightning import LightningModule
+from lightning import Callback, LightningModule
 from torch import Tensor
+
 
 class my_custom_task(ABC, LightningModule):
     @beartype
@@ -14,12 +15,10 @@ class my_custom_task(ABC, LightningModule):
         lr: float = 1e-4,
     ):
         super().__init__()
-        self.save_hyperparameters()
+        self.save_hyperparameters()  # ignore the instance of nn.Module that are already stored ignore=['my_module'])
 
     @beartype
-    def forward(
-        self, x: Any
-    ) -> Any :
+    def forward(self, x: Any) -> Dict:
         """Return the training predictions, next-token predictions, and aggregated context z.
 
         Args:
@@ -31,16 +30,14 @@ class my_custom_task(ABC, LightningModule):
         pass
 
     @beartype
-    def training_step(self, data, batch_idx):
+    def training_step(self, data, batch_idx) -> Tensor:
         pass
+        # return loss #can also return a dict with key 'loss'
 
     @beartype
-    def validation_step(self, data, batch_idx):
+    def validation_step(self, data, batch_idx) -> Tensor:
         pass
-
-    @torch.inference_mode()
-    def on_train_end(self):
-        pass
+        # return loss #can also return a dict with key 'loss'
 
     @abstractmethod
     def loss_function(self, target: Any, preds: Any) -> Tensor:
@@ -55,7 +52,13 @@ class my_custom_task(ABC, LightningModule):
         """
         pass
 
-    def configure_optimizers(self):
+    """ example of lightning hooks that can be overwrited
+    @torch.inference_mode()
+    def on_train_end(self):
+        pass
+    """
+
+    def configure_optimizers(self) -> None:
         return torch.optim.Adam(self.parameters(), lr=self.hparams.lr)
 
     """example of property that can be added
@@ -63,3 +66,12 @@ class my_custom_task(ABC, LightningModule):
     def is_a_lightning_module(self) -> bool:
         return True
     """
+
+
+class MyCustomCallback(Callback):
+    def __init__(self) -> None:
+        super().__init__()
+
+    def on_train_epoch_start(self, trainer, pl_module) -> None:  # pl_module is the LightningModule
+        # setattr(pl_module, "my_param", new_param)
+        pass
