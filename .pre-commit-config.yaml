@@ -1,5 +1,6 @@
 exclude: \.ipynb$
-
+default_language_version:
+    python: python3.10  # Update this to a valid Python version
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v3.2.0
@@ -9,6 +10,7 @@ repos:
       - id: check-yaml
         args: [--unsafe]
       - id: check-added-large-files
+        args: [--maxkb=51200]  # Allow files up to 50MB
   - repo: https://github.com/pre-commit/mirrors-prettier
     rev: v3.0.1
     hooks:

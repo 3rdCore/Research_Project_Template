@@ -1,0 +1,108 @@
+%%%%%%%% ICML 2018 EXAMPLE LATEX SUBMISSION FILE %%%%%%%%%%%%%%%%%
+
+\documentclass{article}
+
+% Recommended, but optional, packages for figures and better typesetting:
+\usepackage{microtype}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{booktabs} % for professional tables
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{mathrsfs}
+\usepackage{nicefrac}
+\usepackage{amsthm}
+\usepackage{thmtools}
+\usepackage{thm-restate}
+%\usepackage[ruled]{algorithm2e} % Comment out this line
+\usepackage{array, makecell}
+\usepackage{listings}
+% hyperref makes hyperlinks in the resulting PDF.
+% If your build breaks (sometimes temporarily if a hyperlink spans a page)
+% please comment out the following usepackage line and replace
+% \usepackage{icml2018} with \usepackage[nohyperref]{icml2018} above.
+\usepackage{hyperref}
+\newcommand\todo[1]{\textcolor{red}{#1}}
+
+% Attempt to make hyperref and algorithmic work together better:
+\newcommand{\theHalgorithm}{\arabic{algorithm}}
+
+% Use the following line for the initial blind version submitted for review:
+%\usepackage{icml2018_ift6269}
+
+% If accepted, instead use the following line for the camera-ready submission:
+\usepackage[accepted]{icml2018_ift6269}
+% SLJ: -> use this for your IFT 6269 project report!
+
+% The \icmltitle you define below is probably too long as a header.
+% Therefore, a short form for the running title is supplied here:
+\icmltitlerunning{Autoregressive VAE for Causal Modeling}
+
+\begin{document}
+
+\twocolumn[
+    \icmltitle{A very Exciting Project Title}
+
+    % It is OKAY to include author information, even for blind
+    % submissions: the style file will automatically remove it for you
+    % unless you've provided the [accepted] option to the icml2018
+    % package.
+
+    % List of affiliations: The first argument should be a (short)
+    % identifier you will use later to specify author affiliations
+    % Academic affiliations should list Department, University, City, Region, Country
+    % Industry affiliations should list Company, City, Region, Country
+
+    % You can specify symbols, otherwise they are numbered in order.
+    % Ideally, you should not use this facility. Affiliations will be numbered
+    % in order of appearance and this is the preferred way.
+
+    \begin{icmlauthorlist}
+        \icmlauthor{Tom Marty}{udem,mi}
+    \end{icmlauthorlist}
+
+    \icmlaffiliation{udem}{Université de Montréal, Québec, Canada}
+    \icmlaffiliation{mi}{Mila, Quebec AI Institute}
+
+    \icmlcorrespondingauthor{Tom Marty}{tom.marty@mila.quebec}
+
+    % You may provide any keywords that you
+    % find helpful for describing your paper; these are used to populate
+    % the "keywords" metadata in the PDF but will not be shown in the document
+    \icmlkeywords{Machine Learning, ICML}
+
+    \vskip 0.3in
+]
+
+% this must go after the closing bracket ] following \twocolumn[ ...
+
+% This command actually creates the footnote in the first column
+% listing the affiliations and the copyright notice.
+% The command takes one argument, which is text to display at the start of the footnote.
+% The \icmlEqualContribution command is standard text for equal contribution.
+% Remove it (just {}) if you do not need this facility.
+
+\printAffiliationsAndNotice{} % otherwise use the standard text.
+
+\begin{abstract}
+
+\end{abstract}
+
+\bibliography{references}
+\bibliographystyle{icml2018}
+
+\end{document}
+
+% This document was modified from the file originally made available by
+% Pat Langley and Andrea Danyluk for ICML-2K. This version was created
+% by Iain Murray in 2018. It was modified from a version from Dan Roy in
+% 2017, which was based on a version from Lise Getoor and Tobias
+% Scheffer, which was slightly modified from the 2010 version by
+% Thorsten Joachims & Johannes Fuernkranz, slightly modified from the
+% 2009 version by Kiri Wagstaff and Sam Roweis's 2008 version, which is
+% slightly modified from Prasad Tadepalli's 2007 version which is a
+% lightly changed version of the previous year's version by Andrew
+% Moore, which was in turn edited from those of Kristian Kersting and
+% Codrina Lauth. Alex Smola contributed to the algorithmic style files.

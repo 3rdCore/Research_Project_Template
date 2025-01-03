@@ -1,0 +1,39 @@
+\relax
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand\HyField@AuxAddToFields[1]{}
+\providecommand\HyField@AuxAddToCoFields[2]{}
+\citation{Pearl_2009}
+\newlabel{subsec:background}{{1}{1}{}{section.1}{}}
+\citation{chevalley2024derivingcausalordersinglevariable}
+\citation{faria_differentiable_2022}
+\citation{brouillard2020differentiablecausaldiscoveryinterventional,lorch2022amortizedinferencecausalstructure}
+\newlabel{subsec:setting}{{2}{2}{}{section.2}{}}
+\newlabel{fig:DAG}{{1}{2}{Graphical model of the data-generation process augmented with the unobserved latent variables. $I_k$ represent the interventional regime and the $z_i \; i \in [1,N]$ are boolean variable that encode the state of each mechanism $p(X_i | \text {Pa}(X_i))$}{figure.1}{}}
+\citation{kingma2022autoencodingvariationalbayes}
+\citation{SCMVAE}
+\newlabel{subsec:Relevance}{{2.1}{3}{}{subsection.2.1}{}}
+\newlabel{subsec:Method}{{3}{3}{}{section.3}{}}
+\newlabel{fig:assumption}{{2}{3}{Illustration of the necessity of the assumption considered on the data-generation process. a). \textbf {Single Target / Uniq. Intervention}: The regime $\mathcal {I}_1$ can't be the observational regime $\mathcal {O}$ because this would break the interventional-Faithfulness assumption ($\mathcal {I}_2$ would then correspond to a intervention made on marginal $p(x_1)$ which should also alter the marginal of its descendent: $p(x_2)$, which is not what we observe). $\mathcal {I}_2$ can't be $\mathcal {O}$ because this would break the single target assumption (In $\mathcal {I}_1$, while the marginal $p(x_1)$ has changed, $p(x_2)$ remain not affected. For this to be possible is to have performed an intervention on $p(x_1)$ and one on $p(x_2|x_1)$ to cancel out the effect of the first one on $p(x_2)$). Therefore, the only possible observational regime is $\mathcal {I}_3$. b) \textbf {Multiple Target / Uniq. Intervention}: Here we add another regime $\mathcal {I}_4$ targeting both $p(x_1)$ and $p(x_2|x_1)$. In this case, the regimes become completely symmetric and the observational regime can't be identified. c) \textbf {Single Target / Non-Uniq. intervention}: Here we add another regime $\mathcal {I}_4$. In this case, $\mathcal I_1$ and $\mathcal {I}_4$ have symmetric role and the observational regime once again can't be identified}{figure.2}{}}
+\citation{CausalVAE}
+\citation{jang2017categoricalreparameterizationgumbelsoftmax}
+\newlabel{fig:architecture}{{3}{4}{Architecture of the variational Auto-Encoder. An encoder takes as input the data $x$ and outputs the parameters of the approximate posterior categorical distribution $q_\phi (z | x)$. The sampled discrete latent variables $z$ are then fed to the decoder that outputs the parameters of the likelihood distribution $p_\theta (x | z)$. During backpropagation, the discrete latents are approximated using the Gumbel-Softmax re-parametrization trick. For more details on the architecture of the likelyhood model $p_\theta (x | z)$, we refer to Figure \ref {fig:architecture_decoder}}{figure.3}{}}
+\newlabel{subsec:Experiments}{{4}{4}{}{section.4}{}}
+\citation{fu2019cyclicalannealingschedulesimple}
+\newlabel{fig:architecture_decoder}{{4}{5}{Architecture of the likelihood model $p_\theta (x | z)$. Each mechanism $f_i$ is modeled as a gaussian distribution with mean $\mu _\theta (x_i, \text {Pa}(X_i), z_i)$ and unit variance. The mean of the input sample is reconstructed autoregressively following the topological order of the graph $\mathcal {G}$}{figure.4}{}}
+\newlabel{subsec:modeltrainingdetails}{{4.2}{5}{}{subsection.4.2}{}}
+\bibdata{references}
+\bibcite{brouillard2020differentiablecausaldiscoveryinterventional}{{1}{2020}{{Brouillard et~al.}}{{Brouillard, Lachapelle, Lacoste, Lacoste-Julien, and Drouin}}}
+\bibcite{chevalley2024derivingcausalordersinglevariable}{{2}{2024}{{Chevalley et~al.}}{{Chevalley, Schwab, and Mehrjou}}}
+\bibcite{faria_differentiable_2022}{{3}{2022}{{Faria et~al.}}{{Faria, Martins, and Figueiredo}}}
+\bibcite{fu2019cyclicalannealingschedulesimple}{{4}{2019}{{Fu et~al.}}{{Fu, Li, Liu, Gao, Celikyilmaz, and Carin}}}
+\bibcite{jang2017categoricalreparameterizationgumbelsoftmax}{{5}{2017}{{Jang et~al.}}{{Jang, Gu, and Poole}}}
+\newlabel{fig:losses}{{5}{6}{Training curves of the model. Horizontal line represent the optimal least-square error between the sample value and its conditional mean. The ELBO is decomposed into the reconstruction error and the KL term. The reconstruction error decreases steadily while the KL term oscillates following the cyclical annealing schedule}{figure.5}{}}
+\newlabel{fig:ARI}{{6}{6}{ARI of the model at identifying the different interventional regimes. The model is able to identify the different regimes on 50\% of the samples}{figure.6}{}}
+\newlabel{subsec:Conclusion}{{5}{6}{}{section.5}{}}
+\bibcite{kingma2022autoencodingvariationalbayes}{{6}{2022}{{Kingma \& Welling}}{{Kingma and Welling}}}
+\bibcite{SCMVAE}{{7}{2022}{{Komanduri et~al.}}{{Komanduri, Wu, Huang, Chen, and Wu}}}
+\bibcite{lorch2022amortizedinferencecausalstructure}{{8}{2022}{{Lorch et~al.}}{{Lorch, Sussex, Rothfuss, Krause, and Schölkopf}}}
+\bibcite{Pearl_2009}{{9}{2009}{{Pearl}}{{}}}
+\bibcite{CausalVAE}{{10}{2021}{{Yang et~al.}}{{Yang, Liu, Chen, Shen, Hao, and Wang}}}
+\bibstyle{icml2018}
+\gdef \@abspage@last{7}
