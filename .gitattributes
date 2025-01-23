@@ -1,0 +1,3 @@
+# Ignore specific file types (e.g., `.js` files)
+*.ipynb linguist-vendored
+*.tex linguist-vendored
