@@ -1,3 +1,4 @@
+#override hydra/launcher=submitit_slurm with custom attributes
 defaults:
   - submitit_slurm
 
@@ -9,6 +10,9 @@ mem_gb: 32
 timeout_min: 1440  # 24 hours
 array_parallelism: 60
 
+# change the setup to match your own conda/virtualenv setup on the cluster
 setup:
   - "module --quiet load miniconda/3"
   - "conda activate env"
+
+
