@@ -1,2 +1,2 @@
 # Ignore specific file types (e.g., `.js` files)
-report/* linguist-vendored
+report/** linguist-vendored
