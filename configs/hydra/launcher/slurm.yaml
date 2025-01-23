@@ -14,5 +14,3 @@ array_parallelism: 60
 setup:
   - "module --quiet load miniconda/3"
   - "conda activate env"
-
-
