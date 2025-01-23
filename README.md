@@ -1,7 +1,3 @@
-Here’s a revised version that incorporates more of the original text while keeping the improved readability and formatting:  
-
----
-
 # 🚀 Your Research Project Template  
 
 This template provides tools and best practices to quick-start your research project with a fully functional environment and backbones for your codebase. It is based on my own experience and the experience of others and aims to help you get started effectively. Feel free to use this template and modify it to suit your needs. The template includes the following:  
@@ -102,7 +98,9 @@ Learn more about Hydra [here](https://hydra.cc/docs/intro).
 
 ---
 
-## 🤝 Contribution  
+## 🤝 Contribution 
+
+This template is directly inspired by our project [PrequentialCode](https://github.com/3rdCore/PrequentialCode), made possible by Eric Elmoznino, and Tejas Kasetty.
 
 All kinds of contributions are welcome! You can add tools, improve practices, or suggest trade-offs.  
 👉 If you add external dependencies, make sure to update the `requirements.txt` file.  
