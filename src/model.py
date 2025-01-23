@@ -13,15 +13,7 @@ class abstract_model(ABC, nn.Module):
 
     @abstractmethod
     def forward(self, x: Any) -> Any:
-        """Predict different outputs given inputs x and latent representation z.
-
-        Args:
-            x (dict[str, Tensor]): Input data, each with shape (samples, tasks, *).
-            z (dict[str, Tensor]): Computed latent representation, each with shape (samples, tasks, *).
-
-        Returns:
-            dict[str, Tensor]: Predicted values for output, each with shape (samples, tasks, *).
-        """
+        """Perform forward pass of the model."""
         pass
 
 
@@ -34,15 +26,7 @@ class my_model(abstract_model):
 
     @beartype
     def forward(self, x: Any) -> Any:
-        """Predict given inputs x and model parameters z.
-
-        Args:
-            x (dict[str, Tensor]): Input data, each with shape (samples, tasks, *).
-            z (dict[str, Tensor]): Aggregated context information, each with shape (samples, tasks, *).
-
-        Returns:
-            dict[str, Tensor]: Predicted values for y outputs, each with shape (samples, tasks, *).
-        """
+        """Perform forward pass of the model."""
         pass
 
     @beartype

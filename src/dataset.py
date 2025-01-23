@@ -41,27 +41,13 @@ class Custom_Dataset(Dataset):
     def gen_data(
         self,
         n_samples: int,
-    ) -> Any:  # be careful of the return type
+    ) -> Any:  # be careful on the return type
         x = None
         y = None
         data_dict = {"x": x, "y": y}
         params_dict = None
 
         return data_dict, params_dict
-
-    @abstractmethod
-    def function(self, x: Tensor, params: dict[str, Tensor]) -> FloatTensor:
-        """Applies the function defined using the params (function parameters)
-        on the x(input data) to get y (output)
-
-        Args:
-            x (Tensor): input data with shape (n_tasks, n_samples, x_dim)
-            params (int): function parameters with shape (n_tasks, ...)
-
-        Returns:
-            FloatTensor: y (output) with shape (n_tasks, n_samples, y_dim)
-        """
-        pass
 
 
 class CustomDataModule(LightningDataModule):

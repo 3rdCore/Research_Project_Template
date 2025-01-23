@@ -18,15 +18,8 @@ class my_custom_task(ABC, LightningModule):
         self.save_hyperparameters()  # ignore the instance of nn.Module that are already stored ignore=['my_module'])
 
     @beartype
-    def forward(self, x: Any) -> Dict:
-        """Return the training predictions, next-token predictions, and aggregated context z.
-
-        Args:
-            x (dict[str, Tensor]):  Input data, each with shape (samples, tasks, *).
-
-        Returns:
-            any: Predictions.
-        """
+    def forward(self, x: Any) -> Any:
+        """Forward pass of the model."""
         pass
 
     @beartype
@@ -41,15 +34,7 @@ class my_custom_task(ABC, LightningModule):
 
     @abstractmethod
     def loss_function(self, target: Any, preds: Any) -> Tensor:
-        """Do not average across samples and tasks! Return shape should be
-
-        Args:
-            target (dict[str, Tensor]): Inputs/targets (samples, tasks, *).
-            preds (dict[str, Tensor]): Predictions (samples, tasks, *).
-
-        Returns:
-            Tensor: Losses (samples, tasks).
-        """
+        """Loss function to be used in the training loop."""
         pass
 
     """ example of lightning hooks that can be overwrited
