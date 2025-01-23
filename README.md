@@ -9,7 +9,9 @@ This template provides tools and best practices to quick-start your research pro
 - 📊 [WandB integration](https://wandb.ai/site): For experiment tracking and visualization.
 - 🤖 [CI with Github Actions](https://docs.github.com/en/actions): Continuous Integration setup to maintain project quality.
 
-Additional utilities include a ready-to-use Jupyter notebook for creating reproducible Seaborn plots and pulling data directly from your WandB project.
+Additional utilities:
+- Ready-to-use Jupyter notebook in `report/plots/notebook.ipynb` for making reproducible Seaborn plots, pulling data directly from your WandB project.
+- Pre-implemented VScode debugger config file in `.vscode/launch.json` for debugging your code.
 
 ---
 
@@ -77,7 +79,8 @@ pre-commit install
 3️⃣ Configure WandB (if applicable):  
 Edit `configs/train.yaml` with your WandB entity and project information.  
 
-and you're good to go!
+4️⃣ You're good to go! 
+
 ---
 
 ## ▶️ Usage  
@@ -86,6 +89,7 @@ To run your code, simply execute the `train.py` script. Pass hyperparameters as 
 ```bash
 python train.py seed=0 my_custom_argument=config_1
 ```  
+This will launch a training run with the specified hyperparameters.
 
 For parallel jobs on a cluster, use Hydra’s `--multirun` feature:  
 ```bash

@@ -11,8 +11,7 @@
             "program": "src/train.py",
             "console": "integratedTerminal",
             "args": [
-                "hydra/launcher=mila_tom",
-                "save_dir=/home/mila/t/tom.marty/scratch/unregistered_logs",
+                "hydra/launcher=slurm",
             ],
             "env": {
                 "HYDRA_FULL_ERROR": "1"
