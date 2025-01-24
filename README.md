@@ -104,10 +104,14 @@ Learn more about Hydra [here](https://hydra.cc/docs/intro).
 
 ## 🤝 Contribution
 
-This template is directly inspired by our project [PrequentialCode](https://github.com/3rdCore/PrequentialCode), made possible by Eric Elmoznino, and Tejas Kasetty.
-
 All kinds of contributions are welcome! You can add tools, improve practices, or suggest trade-offs.
 👉 If you add external dependencies, make sure to update the `requirements.txt` file.
+
+This template is directly inspired by our project [PrequentialCode](https://github.com/3rdCore/PrequentialCode), made possible by Eric Elmoznino, and Tejas Kasetty :
+
+<a href="https://github.com/3rdcore/PrequentialCode/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=3rdcore/PrequentialCode&max=3" />
+</a>
 
 ---
 
